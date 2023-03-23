@@ -1,0 +1,63 @@
+<div id="navbar">
+  <a class="toggle" (click)="toggleVisible()">
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div> MENU
+  </a>
+  <h1 class="snippets-title">Wordpress Snippets</h1>
+</div>
+
+
+<div #mainMenu id="mainmenu">
+  <nav>
+    <ul>
+      <ng-container *ngFor="let firstLevelItem of navListItems">
+        <li>
+          <a appHandleLinkClick><i class="fa fa-plus"></i> {{ firstLevelItem.name }} </a>
+          <ng-container *ngIf="firstLevelItem.subItems.length > 0">
+            <ul>
+              <li *ngFor="let secondLevelItem of firstLevelItem.subItems">
+                <a [routerLink]="secondLevelItem.link">
+                  {{ secondLevelItem.name }}
+                </a>
+              </li>
+            </ul>
+          </ng-container>
+        </li>
+      </ng-container>
+
+    </ul>
+  </nav>
+  <footer>
+    <div class="text">
+      <p>Drop me a line <a href="https://simon-koehler.com/en/contact">here</a></p>
+    </div>
+    <div class="icons">
+      <a href="https://simon-koehler.com/en" target="_blank">
+        <i class="fa fa-globe"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/typo3-freelancer/" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://typo3.com/partners/professional-service-listing/detail/typo3-freelancer" target="_blank">
+        <i class="fab fa-typo3"></i>
+      </a>
+      <a href="https://instagram.com/typo3freelancer" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://github.com/koehlersimon/" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.youtube.com/channel/UC_PtQESDvj-GZNeo9LarRuA?view_as=subscriber" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+  </footer>
+  <a class="hamburger cross" (click)="toggleVisible()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </a>
+</div>
